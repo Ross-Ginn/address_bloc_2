@@ -10,6 +10,18 @@ let(:book) { AddressBook.new }
     expect(entry.email).to eq expected_email
   end
 
+  describe "#bomb" do
+    it "deletes all entries" do
+      book.add_entry("Ross", "111-111-1111", "ross@gmail.com")
+      book.add_entry("Ross", "111-111-1111", "ross@gmail.com")
+      book.add_entry("Ross", "111-111-1111", "ross@gmail.com")
+      book.add_entry("Ross", "111-111-1111", "ross@gmail.com")
+
+      book.bomb
+      expect(book.entries.size).to eq 0
+    end
+  end
+
   describe "attributes" do
     it "responds to entries" do
       expect(book.entries).to be_an(Array)

@@ -9,6 +9,10 @@ attr_reader :entries
     @entries = []
   end
 
+  def bomb
+    @entries = []
+  end
+
   def remove_entry(name, phone, email)
     delete_entry = nil
     @entries.each do |entry|
